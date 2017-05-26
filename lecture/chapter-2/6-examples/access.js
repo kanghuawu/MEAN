@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var productSchema = require('./user');
+var userSchema = require('./user');
 
-var User = mongoose.model('User', productSchema);
+var User = mongoose.model('User', userSchema);
 
 var u = new User({
   profile: { username: 'vkarpov15' }
@@ -17,5 +17,8 @@ function modifyUserProfile(user, profile, callback) {
   user.profile = profile;
   user.save(function(error, user) {
     // handle result
+    if(error){
+    	console.log(error)
+    }
   });
 }
